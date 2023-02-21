@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="styleTP3.css" rel="stylesheet" type="text/css" />
+    <link href="styleextra.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="validation.js"></script>
+    <title>Reservation</title>
+
+</head>
+<body onload="setCaptcha(id_exempleCaptcha)";>
+
+
+
+    <div class="entete">  
+        <div class="header">
+            <a href="../TP1/index.html" class="logo">
+            <img src="images/blackgoose.png" alt="blackgoose picture" class="GooseImg"> </a>
+    
+            <div class="header-right">
+              <a class="active" href="../TP1/index.html">Home</a>
+              <a href="../TP1/Menu Gastronomique.html">Menu Gastronomique</a>
+            </div>
+          </div>
+          <a href="../TP1/index.html" class="logo">  <img src="images/blackgoose.png" alt="blackgoose picture" class="GooseImg"> </a>
+          <h1>BISTRO DE L'OIE NOIRE</h1> 
+        
+    </div> <br>
+
+    <div class="contenu">
+    <div class="menu1"> 
+        <ul class="list">
+        <li><a href="index.html">Présentation</a></li> 
+        <li><a href="index.html">Menu</a></li> 
+        <li><a href="brigade.html">La brigade</a></li> 
+        <li><a href="info.html">Information pratiques</a></li>   
+        <li>Reservation</li>
+        </ul>
+       
+
+    </div>
+    <div class="centre"> 
+
+        <h2>Veuillez entrer vos coordonnées pour effectuer la réservation</h2>
+        <p>Les informations suivies d'un astérique sont obligatoires. </p>
+        <div class="form">
+            <form  action="confirmation.html" methode="get">
+                
+                <table>
+                    <tr>
+                    
+                        <td><label for="Nombre de convives" >Nombre de convives :</label> </td>
+                        <td> <input type="number" name="nom" id="Nb_de_convives" placeholder="Ex: 2" required/>(*) </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="Date de réservation">Date de réservation :</label> </td> 
+                        <td> <input type="date" name="nom" id="Date_de_réservation" required/>(*)  </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><label for="Regime">Regime ou restriction alimentaire :</label>  </td> 
+                        <td> <select id="Regime" required > 
+                                <option value=""> -- Veuillez choisir une option -- </option>
+                                <option value="Sans_restriction">Sans restriction</option>
+                                <option value="Végétarien">Végétarien</option>
+                                <option value="Vegan">Vegan</option>
+                                <option value="Sans_Gluten">Sans Gluten</option>
+                                <option value="crevettes">Allergies aux crevettes</option>
+                                <option value="cacahuètes">Allergies aux cacahuètes</option>
+                        </select>(*)  </td>
+                    </tr>
+                    <tr> <td colspan="2"><button type="button" onclick="testDisponibilite();">Vérifier la disponibilité </button> </td> </tr> 
+                    
+                    <tr>  
+                        <td><label for="Appelation"> Appelation :</label>  </td>
+                        <td>
+                            <select id="Appelation" required>
+                                <option value=""> -- Select--</option>
+                                <option value="one"> Mme</option>
+                                <option value="two"> Mr</option>
+                            </select>(*) 
+                        </td>    
+                    </tr>
+
+                <tr> 
+                    <td> <label for="Nom">Nom :</label> </td>
+                    <td> <input type="text" name="Nom" placeholder="Entrer votre nom" required/>(*)  </td> <!-- add the 1 line condition--> 
+                
+                </tr>  
+                
+                <tr>
+                    <td><label for="Prenom">Prénom :</label> </td>
+                    <td> <input type="text" name="Prenom" placeholder="Entrer votre prénom" required/>(*) </td>
+
+                </tr>
+                
+                <tr>
+                    <td><label for="Tel">Numéro de téléphone :</label> </td>
+                    <td><input type="text" name="Tel" placeholder="Ex :0123456789" required/>(*)  </td> 
+                </tr>
+                
+                <tr> 
+                    <td><label for="Mail">Adresse e-mail :</label> </td>
+                    <td> <input type="email" name="Mail" placeholder="Ex: prenom.nom@exemple.com" required/>(*)  </td> 
+
+                </tr>
+                <tr>  
+                    <td><label for="Payment">Moyen de paiement :</label>  </td>
+                    <td> <label for="choix1">Liquide </label> <input type="radio" id="choix1" name="Payment" value="Liquide" required> 
+                        <label for="choix2">Carte Bleue </label> <input type="radio" id="choix2" name="Payment" value="Card"> 
+                        <label for="choix3">Ticket Resto </label> <input type="radio" id="choix3"name="Payment"  value="TR">(*)
+                    </td>
+                </tr> 
+            
+                
+                <tr>
+                    <td><label>Numéro de carte :</label></td>
+                    <td> <input type="number" name="NumCarte" id="id_carte" pattern="[0-9]{16}" required/>(*)</td>
+                </tr>
+                    
+                <tr>
+                    <td><label for="id_commentaire">Commentaires :</label></td>
+                    <td> <textarea name="commentaire" rows="5"  id="id_commentaire" placeholder="Entrez votre commentaire" title="commentaire" > </textarea></td>
+                </tr>      
+                  
+               
+                 <tr>
+                     <td>
+                    <input type="checkbox" name="offres" checked>
+                        Je souhaite recevoir des offres promotionnelles.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <input type="checkbox" name="genreRadio2" required>
+                        J'ai lu les condictions générales de vente. (*)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Vous n'êtes pas un robot ?  Entrez ce captcha : </label></td>
+                     
+                        <td><input type="text" name="captcha" id="id_captcha" pattern="[A-Z]{3}+[0-9]{3}"  title="Il faut saisir 3 lettres en majuscules et 3 chiffres"required>
+                            <input type="text" name="exempleCaptcha" id="id_exempleCaptcha"readonly/></td>             
+                </tr>
+
+                <tr>
+                    
+                   <td><input type="submit" value="Envoi"  id="btSubmit" onclick="return confirm('Etes-vous sûr ?') && testCaptcha(id_captcha,id_exCaptcha) 
+                  //&& testJS() l'appelation suprimée
+                   && Paiement(nb_convive,id_liquide) ;" ></td>
+
+                   <td><input type="reset" value="Reset" onclick="return confirm('Etes-vous sûr de réinitialise le contenu du formulaire ?');"> </td>
+                </tr>
+
+            </table>
+         
+            </form>
+        
+        </div>
+        
+    </div>
+
+
+</div> <br>
+    <div class="pied"> 
+        <hr>
+        <footer><small> Copyright ©2021 | Votre nom (Pour me contacter: <a href="mailto:me@example.com">m'écrire)</a> </small> </footer> 
+        <a href="https://www.instagram.com"><img src="images/instagram.svg" alt="Page Instagram" class="ReseauSociaux"> </a> 
+        <a href="https://www.tripadvisor.com"><img src="images/tripadvisor.svg"alt="Page Tripadvisor" class="ReseauSociaux"></a>
+        <a href="https://www.twitter.com"><img src="images/twitter.svg" alt="Page Twitter" class="ReseauSociaux"></a>
+ 
+    </div>
+    <!--<script>
+    
+        function manage(txt) {
+            function manage(txt) {
+                var bt = document.getElementById('submit');
+                var ele = document.getAttribute("required");
+               // var ele = document.getElementsByTagName('required'); 
+        
+                // Loop through each element.
+                for (i = 0; i < ele.length; i++) {
+        
+                    // Check the element type
+                    if ( //ele[i].type == 'text' &&
+                     ele[i].value == '') {
+                        bt.disabled = true;    // Disable the button.
+                        return false;
+                    }
+                    else {
+                        bt.disabled = false;   // Enable the button.
+                    }
+                }
+            }    
+        }
+        </script> --> 
+
+</body>
+
+
+</html> 
